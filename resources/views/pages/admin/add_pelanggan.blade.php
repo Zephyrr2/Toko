@@ -13,14 +13,13 @@
             <p class="text-center text-lg font-medium">Tambah Pelanggan</p>
 
             <div>
-            <label for="nama" class="sr-only">Nama</label>
+            <label for="nama" class="block text-sm/6 font-medium text-gray-900">Nama</label>
 
             <div class="relative">
                 <input
                 type="text"
                 name="nama"
                 class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                placeholder="Enter name"
                 />
 
                 <span class="absolute inset-y-0 end-0 grid place-content-center px-4">

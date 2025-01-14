@@ -10,17 +10,45 @@
             class="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
         >
             @csrf
-            <p class="text-center text-lg font-medium">Register</p>
+            <p class="text-center text-lg font-medium">Tambah Pegawai</p>
 
             <div>
-            <label for="username" class="sr-only">Username</label>
+            <label for="username" class="block text-sm/6 font-medium text-gray-900">Username</label>
 
             <div class="relative">
                 <input
                 type="text"
                 name="username"
                 class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                placeholder="Enter username"
+                />
+
+                <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="size-4 text-gray-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 14c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-3.31 0-10 1.67-10 5v1h20v-1c0-3.33-6.69-5-10-5z"
+                    />
+                </svg>
+                </span>
+            </div>
+            </div>
+
+            <div>
+            <label for="email" class="block text-sm/6 font-medium text-gray-900">Email</label>
+
+            <div class="relative">
+                <input
+                type="email"
+                name="email"
+                class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                 />
 
                 <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -43,14 +71,13 @@
             </div>
 
             <div>
-            <label for="password" class="sr-only">Password</label>
+            <label for="password" class="block text-sm/6 font-medium text-gray-900">Password</label>
 
             <div class="relative">
                 <input
                 type="password"
                 name="password"
                 class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                placeholder="Enter password"
                 />
 
                 <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -82,13 +109,8 @@
             type="submit"
             class="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
             >
-            Register
+            Submit
             </button>
-
-            <p class="text-center text-sm text-gray-500">
-            No account?
-            <a class="underline" href="#">Sign up</a>
-            </p>
         </form>
         </div>
     </div>

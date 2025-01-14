@@ -54,14 +54,13 @@
                 <p class="text-center text-lg font-medium">Login</p>
 
                 <div>
-                <label for="username" class="sr-only">Username</label>
+                <label for="email" class="block text-sm/6 font-medium text-gray-900">Email</label>
 
                 <div class="relative">
                     <input
-                    type="text"
-                    name="username"
+                    type="email"
+                    name="email"
                     class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                    placeholder="Enter username"
                     />
 
                     <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -84,14 +83,13 @@
                 </div>
 
                 <div>
-                <label for="password" class="sr-only">Password</label>
+                <label for="password" class="block text-sm/6 font-medium text-gray-900">Password</label>
 
                 <div class="relative">
                     <input
                     type="password"
                     name="password"
                     class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                    placeholder="Enter password"
                     />
 
                     <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -125,11 +123,6 @@
                 >
                 Login
                 </button>
-
-                <p class="text-center text-sm text-gray-500">
-                No account?
-                <a class="underline" href="#">Sign up</a>
-                </p>
             </form>
         </div>
     </div>

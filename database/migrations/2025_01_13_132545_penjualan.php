@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('penjualan', function(Blueprint $table) {
             $table->increments('id_transaksi');
             $table->integer('id_pelanggan');
-            $table->date('tgl_transaksi');
             $table->integer('total_transaksi');
             $table->timestamps();
         });
