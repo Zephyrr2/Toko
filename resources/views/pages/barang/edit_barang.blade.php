@@ -22,7 +22,7 @@
                     type="text"
                     id="nama_barang"
                     name="nama"
-                    class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                    class="w-full rounded-lg border-black border-2 p-4 pe-12 text-sm"
                     value="{{ $barang->nama_barang }}"
                     />
 
@@ -36,7 +36,7 @@
                     type="number"
                     id="harga_barang"
                     name="harga"
-                    class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                    class="w-full rounded-lg border-black border-2 p-4 pe-12 text-sm"
                     value="{{ $barang->harga_barang }}"
                     />
                 </div>
@@ -49,7 +49,7 @@
                     type="number"
                     id="stok_barang"
                     name="stok"
-                    class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                    class="w-full rounded-lg border-black border-2 p-4 pe-12 text-sm"
                     value="{{ $barang->stock}}"
                     />
                 </div>

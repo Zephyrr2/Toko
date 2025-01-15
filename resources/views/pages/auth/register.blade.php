@@ -19,7 +19,7 @@
                 <input
                 type="text"
                 name="username"
-                class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                class="w-full rounded-lg border-black border-2 p-4 pe-12 text-sm"
                 />
 
                 <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -48,7 +48,7 @@
                 <input
                 type="email"
                 name="email"
-                class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                class="w-full rounded-lg border-black border-2 p-4 pe-12 text-sm"
                 />
 
                 <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -77,7 +77,7 @@
                 <input
                 type="password"
                 name="password"
-                class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                class="w-full rounded-lg border-black border-2 p-4 pe-12 text-sm"
                 />
 
                 <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
