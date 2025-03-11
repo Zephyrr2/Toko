@@ -36,15 +36,13 @@ class AuthController extends Controller
 
         $user = User::where('email', $email)->first();
 
-        if ($user && Hash::check($password, $user->password)) {
-            if ($user->role == 'Admin') {
-                return redirect('/admin/pelanggan');
-            } elseif ($user->role == 'Pegawai') {
-                return redirect('/admin/pegawai');
-            }
-        }
+         if(!$user){
+            return redirect('/')->with('error','email tidak terdaftar');
+         }
 
-        return redirect('/login')->with('error', 'Username atau password salah');
+         if (Auth::attempt(['email'=> $request->email, 'password' => $request->password])){
+            return redirect('/admin/pelanggan');
+         }
     }
 
     public function login() {
@@ -53,6 +51,6 @@ class AuthController extends Controller
 
     public function logout(Request $request) {
         Auth::logout();
-        return redirect('/login');
+        return redirect('/');
     }
 }

@@ -23,27 +23,27 @@ class BarangController extends Controller
         $nama_barang = $request->input('nama');
         $harga = $request->input('harga');
         $stok = $request->input('stok');
-        $foto = $request->file('foto');
+        // $foto = $request->file('foto');
 
-        if ($foto) {
-            $thumb = $foto->getClientOriginalName();
-            $path = public_path() . '/img';
+        // if ($foto) {
+        //     $thumb = $foto->getClientOriginalName();
+        //     $path = public_path() . '/img';
 
-            if (!File::exists($path)) {
-                File::makeDirectory($path, 0777, true, true);
-            }
+        //     if (!File::exists($path)) {
+        //         File::makeDirectory($path, 0777, true, true);
+        //     }
 
-            $foto->move($path, $thumb);
-        } else {
-            $thumb = null;
-        }
+        //     $foto->move($path, $thumb);
+        // } else {
+        //     $thumb = null;
+        // }
 
         $barang = new Barang();
 
         $barang->nama_barang = $nama_barang;
         $barang->harga_barang = $harga;
         $barang->stock = $stok;
-        $barang->foto = $thumb;
+        // $barang->foto = $thumb;
         $barang->save();
 
         if ($barang) {
@@ -65,25 +65,25 @@ class BarangController extends Controller
         $nama_barang = $request->input('nama');
         $harga = $request->input('harga');
         $stok = $request->input('stok');
-        $foto = $request->file('foto');
+        // $foto = $request->file('foto');
 
-        $path = public_path() . '/img';
+        // $path = public_path() . '/img';
 
         $query = Barang::where('id_barang', $id_barang)->first();
 
-        $foto_lama = $query->foto;
-        $thumb = $foto_lama;
+        // $foto_lama = $query->foto;
+        // $thumb = $foto_lama;
 
-        if ($foto) {
-            $thumb = $foto->getClientOriginalName();
+        // if ($foto) {
+        //     $thumb = $foto->getClientOriginalName();
 
-            if ($query->foto) {
-                File::delete($path . '/' . $foto_lama);
-            }
+        //     if ($query->foto) {
+        //         File::delete($path . '/' . $foto_lama);
+        //     }
 
-            $foto->move($$path, $thumb);
-            $query->foto = $thumb;
-        }
+        //     $foto->move($$path, $thumb);
+        //     $query->foto = $thumb;
+        // }
 
         $query->nama_barang = $nama_barang;
         $query->harga_barang = $harga;
@@ -109,5 +109,18 @@ class BarangController extends Controller
             echo "Barang tidak ada";
             return redirect('/admin/barang');
         }
+    }
+
+    public function updateStock($id_barang, $jumlah)
+    {
+        $barang = Barang::where('id_barang', $id_barang)->first();
+        if ($barang) {
+            // Pastikan stok tidak menjadi negatif
+            $newStock = max(0, $barang->stock - $jumlah);
+            $barang->stock = $newStock;
+            $barang->save();
+            return true;
+        }
+        return false;
     }
 }

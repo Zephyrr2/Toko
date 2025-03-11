@@ -1,6 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
+    @include('partials.sidebar')
+
     <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
         <div class="mx-auto max-w-lg">
 
@@ -11,10 +13,10 @@
             class="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
         >
             @csrf
-            <p class="text-center text-lg font-medium">Edit Barang {{ $barang->nama_barang }}</p>
+            <p class="text-center text-lg font-medium">Edit Item {{ $barang->nama_barang }}</p>
 
             <div>
-                <label for="nama_barang" class="block text-sm/6 font-medium text-gray-900">Nama Barang</label>
+                <label for="nama_barang" class="block text-sm/6 font-medium text-gray-900">Item Name</label>
 
                 <div class="relative">
                     <input type="hidden" name="id_barang" value="{{ $barang->id_barang }}">
@@ -29,7 +31,7 @@
                 </div>
             </div>
             <div>
-                <label for="harga_barang" class="block text-sm/6 font-medium text-gray-900">Harga Barang</label>
+                <label for="harga_barang" class="block text-sm/6 font-medium text-gray-900">Item Price</label>
 
                 <div class="relative">
                     <input
@@ -42,7 +44,7 @@
                 </div>
             </div>
             <div>
-                <label for="stok_barang" class="block text-sm/6 font-medium text-gray-900">Stok Barang</label>
+                <label for="stok_barang" class="block text-sm/6 font-medium text-gray-900">Item Stock</label>
 
                 <div class="relative">
                     <input
@@ -54,8 +56,8 @@
                     />
                 </div>
             </div>
-            <div>
-                <label for="foto_barang" class="sr-only">Foto Barang</label>
+            {{-- <div>
+                <label for="foto_barang" class="sr-only">Item Photo</label>
 
                 <div class="relative">
                     <input
@@ -63,10 +65,10 @@
                     id="foto_barang"
                     name="foto"
                     class="block w-full text-sm text-gray-900 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-600 file:text-white hover:file:bg-indigo-500 file:cursor-pointer"
-                    placeholder="Pilih foto"
+                    placeholder="Select photo"
                     />
                 </div>
-            </div>
+            </div> --}}
 
             <button
             type="submit"

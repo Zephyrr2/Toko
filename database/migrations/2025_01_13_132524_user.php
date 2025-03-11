@@ -21,7 +21,7 @@ return new class extends Migration
         });
 
         Schema::create('pelanggan', function (Blueprint $table) {
-            $table->increments('id_pelanggan');
+            $table->integer('id_pelanggan');
             $table->string('nama');
             $table->enum('gender', ['P', 'L']);
             $table->timestamps();

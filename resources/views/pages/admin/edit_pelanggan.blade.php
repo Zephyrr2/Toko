@@ -7,49 +7,22 @@
         <div class="mx-auto max-w-lg">
 
         <form
-            action="{{ url('/register/process') }}"
+            action="{{ url('/admin/pelanggan/edit/process') }}"
             method="POST"
             class="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
         >
             @csrf
-            <p class="text-center text-lg font-medium">Add Employee</p>
+            <p class="text-center text-lg font-medium">Edit Member</p>
 
             <div>
-            <label for="username" class="block text-sm/6 font-medium text-gray-900">Username</label>
+            <label for="nama" class="block text-sm/6 font-medium text-gray-900">Member ID</label>
 
             <div class="relative">
+                <input type="hidden" name="id_pelanggan" value="{{ $pelanggan->id_pelanggan }}">
                 <input
                 type="text"
-                name="username"
-                class="w-full rounded-lg border-black border-2 p-4 pe-12 text-sm"
-                />
-
-                <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="size-4 text-gray-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                >
-                    <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 14c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-3.31 0-10 1.67-10 5v1h20v-1c0-3.33-6.69-5-10-5z"
-                    />
-                </svg>
-                </span>
-            </div>
-            </div>
-
-            <div>
-            <label for="email" class="block text-sm/6 font-medium text-gray-900">Email</label>
-
-            <div class="relative">
-                <input
-                type="email"
-                name="email"
+                name="id_member"
+                value="{{ $pelanggan->id_pelanggan }}"
                 class="w-full rounded-lg border-black border-2 p-4 pe-12 text-sm"
                 />
 
@@ -73,12 +46,13 @@
             </div>
 
             <div>
-            <label for="password" class="block text-sm/6 font-medium text-gray-900">Password</label>
+            <label for="nama" class="block text-sm/6 font-medium text-gray-900">Name</label>
 
             <div class="relative">
                 <input
-                type="password"
-                name="password"
+                type="text"
+                name="nama"
+                value="{{ $pelanggan->nama }}"
                 class="w-full rounded-lg border-black border-2 p-4 pe-12 text-sm"
                 />
 
@@ -94,17 +68,21 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     stroke-width="2"
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                    <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                    d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
                     />
                 </svg>
                 </span>
             </div>
+            </div>
+
+            <div>
+                <label for="gender" class="block text-sm/6 font-medium text-gray-900">Gender</label>
+                <div class="mt-2">
+                    <select name="gender" required class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                    <option value="L" {{ $pelanggan->gender === 'L' ? 'selected' : '' }}>L</option>
+                    <option value="P" {{ $pelanggan->gender === 'P' ? 'selected' : '' }}>P</option>
+                    </select>
+                </div>
             </div>
 
             <button

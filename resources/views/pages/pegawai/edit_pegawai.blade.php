@@ -7,20 +7,22 @@
         <div class="mx-auto max-w-lg">
 
         <form
-            action="{{ url('/register/process') }}"
+            action="{{ url('/admin/pegawai/edit/process') }}"
             method="POST"
             class="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
         >
             @csrf
-            <p class="text-center text-lg font-medium">Add Employee</p>
+            <p class="text-center text-lg font-medium">Edit Employee</p>
 
             <div>
             <label for="username" class="block text-sm/6 font-medium text-gray-900">Username</label>
 
             <div class="relative">
+                <input type="hidden" name="id_pegawai" value="{{ $pegawai->id_user }}">
                 <input
                 type="text"
                 name="username"
+                value="{{ $pegawai->username }}"
                 class="w-full rounded-lg border-black border-2 p-4 pe-12 text-sm"
                 />
 
@@ -50,6 +52,7 @@
                 <input
                 type="email"
                 name="email"
+                value="{{ $pegawai->email }}"
                 class="w-full rounded-lg border-black border-2 p-4 pe-12 text-sm"
                 />
 
@@ -73,38 +76,13 @@
             </div>
 
             <div>
-            <label for="password" class="block text-sm/6 font-medium text-gray-900">Password</label>
-
-            <div class="relative">
-                <input
-                type="password"
-                name="password"
-                class="w-full rounded-lg border-black border-2 p-4 pe-12 text-sm"
-                />
-
-                <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="size-4 text-gray-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                >
-                    <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                    <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                    />
-                </svg>
-                </span>
-            </div>
+                <label for="role" class="block text-sm/6 font-medium text-gray-900">Role</label>
+                <div class="mt-2">
+                    <select name="role" id="role" required class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                    <option value="Admin" {{ $pegawai->role === 'Admin' ? 'selected' : '' }}>Admin</option>
+                    <option value="Pegawai" {{ $pegawai->role === 'Pegawai' ? 'selected' : '' }}>Pegawai</option>
+                    </select>
+                </div>
             </div>
 
             <button
